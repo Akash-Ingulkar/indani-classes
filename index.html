@@ -24,7 +24,8 @@
   --shadow:0 18px 45px -18px rgba(77,20,7,.35);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:80px;overflow-x:hidden;-webkit-text-size-adjust:100%}
+img{max-width:100%}
 body{font-family:'Poppins',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;line-height:1.6}
 a{color:inherit;text-decoration:none}
 .container{width:min(1150px,100% - 32px);margin-inline:auto}
@@ -131,7 +132,7 @@ h2{font-family:'Oswald',sans-serif;font-size:clamp(2rem,4.2vw,3rem);line-height:
 .stat{background:#fff;border-radius:22px;padding:28px 20px;text-align:center;transition:.3s;box-shadow:var(--shadow);border-bottom:4px solid var(--orange)}
 .stat:hover{transform:translateY(-8px);border-color:var(--maroon)}
 .stat b{font-family:'Oswald',sans-serif;font-size:2.6rem;font-weight:700;display:block;line-height:1.1;color:var(--maroon)}
-.stat span{color:var(--muted);font-size:.9rem}
+.stat>span{color:var(--muted);font-size:.9rem}
 
 /* about */
 .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
@@ -274,18 +275,85 @@ footer .socials svg{width:20px;height:20px;fill:#fff}
   .bf1{left:0}.bf2{right:0}
 }
 @media (max-width:760px){
-  .nav-links{position:fixed;top:0;right:0;height:100vh;width:75%;max-width:300px;background:var(--cream);flex-direction:column;justify-content:center;transform:translateX(100%);transition:.4s;box-shadow:-10px 0 40px rgba(77,20,7,.25)}
-  .nav-links.open{transform:none}
-  .burger{display:block;z-index:70;position:relative}
-  .courses,.features{grid-template-columns:1fr}
-  section{padding:80px 0}
-  .timeline::before{left:23px}
-  .step,.step:nth-child(even){padding:0 0 0 72px;justify-content:flex-start}
-  .step::before{left:23px}
-  .cta{padding:50px 22px}
-  .insta{padding:30px 24px}
+  /* menu */
+  .nav-links{position:fixed;top:0;right:0;height:100vh;height:100dvh;width:78%;max-width:300px;background:var(--cream);flex-direction:column;justify-content:center;gap:22px;transform:translateX(100%);visibility:hidden;transition:transform .4s,visibility .4s}
+  .nav-links.open{transform:none;visibility:visible;box-shadow:-10px 0 40px rgba(77,20,7,.25)}
+  .nav-links a{font-size:1.1rem}
+  .burger{display:block;z-index:70;position:relative;width:44px;height:44px}
+  .menu-dim{position:fixed;inset:0;background:rgba(43,22,16,.45);opacity:0;visibility:hidden;transition:.4s;z-index:45}
+  .menu-dim.show{opacity:1;visibility:visible}
+  .logo img{width:40px;height:40px}
+  .logo-txt b{font-size:1.25rem}
+
+  /* hero */
+  .hero{min-height:auto;padding:100px 0 60px}
+  .eyebrow{letter-spacing:2.5px;font-size:.72rem}
+  h1{font-size:clamp(2.2rem,11vw,3rem)}
+  .hero p.lead{font-size:1rem;margin-bottom:26px}
+  .hero-btns .btn{flex:1 1 100%;justify-content:center}
+  .hero-meta{flex-direction:column;gap:10px;margin-top:28px}
+  .orbit-wrap{max-width:270px;margin-top:40px}
+  .planet{width:46px;height:46px;font-size:1.2rem;border-radius:13px}
+  .p-top,.p-bot{left:calc(50% - 23px)}.p-top{top:-23px}.p-bot{bottom:-23px}
+  .p-left,.p-right{top:calc(50% - 23px)}.p-left{left:-23px}.p-right{right:-23px}
+  .badge-float{padding:7px 12px;font-size:.75rem}
+  .badge-float b{font-size:1.05rem}
+  .bf1{left:-8px}.bf2{right:-8px}
+  .sw-tr{width:62vw;top:-40px;right:-40px;opacity:.9}
+  .sw-bl{width:55vw}
   .dots.d-a{display:none}
-  .hero{padding-top:110px}
+  .dots.d-b{width:70px;height:70px;bottom:20px}
+  .band{padding:12px 0}
+  .band-track{font-size:.8rem;gap:30px}
+  .band-track span::after{margin-left:30px}
+
+  /* sections */
+  section{padding:70px 0}
+  .sec-head{margin-bottom:40px}
+  .tag{font-size:1.8rem}
+  h2{font-size:clamp(1.7rem,8vw,2.2rem)}
+  .stats{gap:14px}
+  .stat{padding:22px 12px;border-radius:18px}
+  .stat b{font-size:2.1rem}
+  .stat>span{font-size:.8rem}
+  .founder-card{padding:30px 22px}
+  .photo{max-width:280px}
+  .photo .since{left:-6px;font-size:.72rem}
+  .courses,.features{grid-template-columns:1fr}
+  .course{padding:30px 22px}
+  .feat{padding:26px 22px}
+  .quote::before{width:160px;height:160px;border-width:22px;top:-100px;left:-100px;opacity:.5}
+  .quote .container{position:relative;z-index:1}
+  .founder-card::after{opacity:.25}
+  .quote::after{width:70px;height:70px;bottom:14px;right:14px;opacity:.4}
+  .timeline::before{left:23px}
+  .step,.step:nth-child(even){padding:0 0 0 64px;justify-content:flex-start;margin-bottom:26px}
+  .step::before{left:23px}
+  .step-card{max-width:none;width:100%}
+  .insta{padding:30px 22px;text-align:center;justify-content:center}
+  .insta h3{font-size:clamp(1.1rem,6vw,1.5rem);word-break:break-word}
+  .insta .btn{width:100%;justify-content:center}
+  .cta{padding:46px 20px;border-radius:26px}
+  .cta .btn{width:100%;justify-content:center}
+  .info-item{padding:18px}
+  .info-item:hover{transform:none}
+  .map,.map iframe{min-height:320px}
+  .map-btn{left:12px;right:12px;bottom:12px;justify-content:center}
+  footer{padding:40px 0 90px}
+  footer .f-logo{flex-direction:column;gap:8px}
+  footer .f-logo b{font-size:1.3rem}
+  footer .laurel{letter-spacing:1.5px;font-size:.7rem}
+  .float-btns{right:14px;bottom:14px;gap:10px}
+  .fab{width:50px;height:50px;font-size:1.3rem}
+  .fab svg{width:25px;height:25px}
+}
+@media (max-width:380px){
+  .stat b{font-size:1.8rem}
+  .logo-txt small{letter-spacing:1.5px}
+}
+@media (hover:none){
+  .course:hover::before{transform:none}
+  .stat:hover,.feat:hover{transform:none}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
 </style>
@@ -562,8 +630,11 @@ addEventListener('scroll',()=>{
 
 // mobile menu
 const links=document.getElementById('navLinks'),burger=document.getElementById('burger');
-burger.onclick=()=>{links.classList.toggle('open');burger.textContent=links.classList.contains('open')?'✕':'☰'};
-links.querySelectorAll('a').forEach(a=>a.onclick=()=>{links.classList.remove('open');burger.textContent='☰'});
+const dim=document.createElement('div');dim.className='menu-dim';document.body.appendChild(dim);
+const setMenu=open=>{links.classList.toggle('open',open);dim.classList.toggle('show',open);burger.textContent=open?'✕':'☰';document.body.style.overflow=open?'hidden':''};
+burger.onclick=()=>setMenu(!links.classList.contains('open'));
+dim.onclick=()=>setMenu(false);
+links.querySelectorAll('a').forEach(a=>a.onclick=()=>setMenu(false));
 
 // typing effect
 const words=['Maths','Science','Physics','Chemistry','Boards'];
