@@ -139,7 +139,12 @@ h2{font-family:'Oswald',sans-serif;font-size:clamp(2rem,4.2vw,3rem);line-height:
 .founder-card::before{content:'';position:absolute;top:-80px;right:-80px;width:220px;height:220px;border-radius:50%;border:28px solid var(--orange);border-left-color:var(--maroon);animation:spin 12s linear infinite;opacity:.9}
 .founder-card::after{content:'';position:absolute;bottom:18px;left:18px;width:70px;height:70px;background-image:radial-gradient(var(--orange) 2.4px,transparent 3px);background-size:14px 14px;opacity:.6}
 .founder-card>*{position:relative;z-index:1}
-.avatar{width:130px;height:130px;margin:0 auto 20px;border-radius:50%;background:var(--grad-m);display:grid;place-items:center;font-family:'Oswald';font-size:3rem;font-weight:700;color:#fff;box-shadow:0 0 0 8px rgba(232,101,10,.18),0 0 0 16px rgba(232,101,10,.07)}
+.photo{position:relative;margin:0 auto 24px;max-width:340px}
+.photo::before{content:'';position:absolute;inset:0;border-radius:24px;border:3px solid var(--orange);transform:translate(12px,12px);transition:.4s}
+.founder-card:hover .photo::before{transform:translate(0,0)}
+.photo img{position:relative;display:block;width:100%;aspect-ratio:1;object-fit:cover;object-position:62% 30%;border-radius:24px;box-shadow:0 25px 45px -20px rgba(77,20,7,.6);transition:.5s}
+.founder-card:hover .photo img{transform:scale(1.02)}
+.photo .since{position:absolute;left:-12px;bottom:22px;background:var(--grad-m);color:#fff;font-size:.78rem;font-weight:600;letter-spacing:1px;padding:8px 16px;border-radius:50px;box-shadow:var(--shadow);border:2px solid var(--orange)}
 .founder-card h3{font-family:'Oswald';font-size:1.7rem;color:var(--maroon-d)}
 .founder-card .role{color:var(--orange);font-weight:600;margin-bottom:16px}
 .founder-card q{color:var(--muted);font-style:italic;display:block}
@@ -372,7 +377,7 @@ footer .socials svg{width:20px;height:20px;fill:#fff}
 <section id="about">
   <div class="container about-grid">
     <div class="founder-card reveal">
-      <div class="avatar">SI</div>
+      <div class="photo"><img src="shubham-indani.jpg" alt="Shubham Indani, Founder &amp; Director of Indani Coaching Classes" loading="lazy"><span class="since">★ Teaching since 2017</span></div>
       <h3>Shubham Indani</h3>
       <div class="role">Founder &amp; Director</div>
       <q>Once a student understands why a formula works, they don't need to memorise it.</q>
